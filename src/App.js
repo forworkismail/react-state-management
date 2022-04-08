@@ -1,10 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      
+    <div className="App container mx-auto px-4">
+      <h1 className="text-3xl font-bold">Budget</h1>
     </div>
   );
 }
