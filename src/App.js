@@ -5,6 +5,15 @@ import NewTransaction from './components/NewTransaction';
 
 function App() {
   const [entries, setEntries] = useState(initialEntries);
+
+  const addEntry = (description, value) => {
+    const result = {
+      id: entries.length + 1,
+      description,
+      value
+    };
+    setEntries([...entries, result]);
+  };
   return (
     <div className="App container mx-auto px-4 py-10">
       <MainHeader title="Budget" />
@@ -14,7 +23,7 @@ function App() {
           return <History key={entry.id} {...entry} />;
         })}
       </div>
-      <NewTransaction />
+      <NewTransaction addEntry={addEntry} />
     </div>
   );
 }

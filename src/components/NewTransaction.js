@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function NewTransaction() {
+function NewTransaction({ addEntry }) {
+  const [description, setDescription] = useState('');
+  const [value, setValue] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addEntry(description, value);
+    setDescription('');
+    setValue('');
+  };
+
   return (
     <div className="mt-8">
       <div className="bg-white py-8 px-6 shadow rounded-lg">
         <div className="mb-4">
           <h1 className="text-2xl font-bold">Add new transaction</h1>
         </div>
-        <form className="space-y-6 mb-0">
+        <form className="space-y-6 mb-0" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="description" className="block text-sm font-medium text-gray-700">
               Description
@@ -19,6 +29,8 @@ function NewTransaction() {
                 placeholder="Type a description"
                 className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none
               focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
               />
             </div>
           </div>
@@ -34,6 +46,8 @@ function NewTransaction() {
                 placeholder="Enter value"
                 className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none
               focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                value={value}
+                onChange={(event) => setValue(event.target.value)}
               />
             </div>
           </div>
