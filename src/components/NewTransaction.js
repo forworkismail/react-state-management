@@ -9,7 +9,7 @@ function NewTransaction() {
         </div>
         <form className="space-y-6 mb-0">
           <div>
-            <label for="description" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
               Description
             </label>
             <div className="mt-1">
@@ -24,7 +24,7 @@ function NewTransaction() {
           </div>
 
           <div>
-            <label for="value" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="value" className="block text-sm font-medium text-gray-700">
               Value
             </label>
             <div className="mt-1">
