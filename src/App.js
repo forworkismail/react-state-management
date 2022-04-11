@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import History from './components/History';
 import MainHeader from './components/MainHeader';
 import NewTransaction from './components/NewTransaction';
+import { initialEntries } from './reducers/entries.reducers';
 
 function App() {
   const [entries, setEntries] = useState(initialEntries);
@@ -49,30 +50,3 @@ function App() {
 }
 
 export default App;
-
-const initialEntries = [
-  {
-    id: 1,
-    description: 'Work income',
-    value: 100,
-    isExpense: false
-  },
-  {
-    id: 2,
-    description: 'Water bill',
-    value: 20,
-    isExpense: true
-  },
-  {
-    id: 3,
-    description: 'Rent',
-    value: 300,
-    isExpense: true
-  },
-  {
-    id: 4,
-    description: 'Power Bill',
-    value: 50,
-    isExpense: true
-  }
-];
