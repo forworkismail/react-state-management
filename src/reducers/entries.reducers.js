@@ -10,7 +10,7 @@ export const entriesReducer = (state = initialEntries, action) => {
   }
 };
 
-export const initialEntries = [
+const initialEntries = [
   {
     id: 1,
     description: 'Work income',

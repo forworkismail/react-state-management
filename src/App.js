@@ -1,23 +1,26 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addEntryRedux } from './actions/entries.action';
 import History from './components/History';
 import MainHeader from './components/MainHeader';
 import NewTransaction from './components/NewTransaction';
-import { initialEntries } from './reducers/entries.reducers';
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
   const [total, setTotal] = useState(0);
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
+  const entries = useSelector((state) => state.entries);
+  const dispatch = useDispatch();
 
   const addEntry = (description, value) => {
-    const result = {
-      id: entries.length + 1,
-      description,
-      value: parseInt(value),
-      isExpense: false
-    };
-    setEntries([...entries, result]);
+    dispatch(
+      addEntryRedux({
+        id: entries.length + 1,
+        description,
+        value: parseInt(value),
+        isExpense: false
+      })
+    );
   };
 
   useEffect(() => {
